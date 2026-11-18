@@ -1,0 +1,8 @@
+node_modules/
+npm-debug.log*
+
+# Kredensial database lokal
+.env
+.env.*
+
+.DS_Store
