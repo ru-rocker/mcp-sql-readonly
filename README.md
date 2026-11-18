@@ -54,6 +54,37 @@ GRANT CREATE SESSION TO mcp_reader;
 GRANT SELECT ANY TABLE ON SCHEMA app TO mcp_reader;  -- Oracle 19c: GRANT SELECT ON app.<tabel> per tabel
 ```
 
+## Prasyarat: Node.js
+
+Minimal **Node 18** (syarat dari `@modelcontextprotocol/sdk`). Disarankan versi **LTS terbaru (24)**, karena versi itu yang dipakai saat development (v24.16.0).
+
+Cek versi yang terpasang:
+
+```bash
+node -v
+```
+
+### Install di Windows
+
+Pilih salah satu cara:
+
+- **winget**, dari PowerShell:
+  ```powershell
+  winget install OpenJS.NodeJS.LTS
+  ```
+- **Installer**: download `.msi` LTS dari https://nodejs.org lalu jalankan. npm ikut terpasang.
+- **nvm-windows**, kalau perlu ganti-ganti versi: install dari https://github.com/coreybutler/nvm-windows/releases, lalu:
+  ```powershell
+  nvm install 24
+  nvm use 24
+  ```
+
+Buka terminal **baru**, lalu cek dengan `node -v` dan `npm -v`.
+
+### Install di macOS
+
+`brew install node`, atau pakai nvm: `nvm install 24`.
+
 ## Setup
 
 ```bash
@@ -92,7 +123,7 @@ Buka Claude Desktop → **Settings → Developer → Edit Config**
 }
 ```
 
-- `command`: isi dengan hasil `which node`. Path lengkap wajib kalau Node dipasang lewat nvm,
+- `command`: isi dengan hasil `which node` (Windows: `where node`, mis. `C:\\Program Files\\nodejs\\node.exe`, backslash ditulis ganda di JSON). Path lengkap wajib kalau Node dipasang lewat nvm,
   karena Claude Desktop tidak memuat nvm sehingga `node` saja tidak ditemukan.
 - Kalau file sudah berisi server lain, cukup tambahkan blok `"postgres"` di dalam `mcpServers`.
 
